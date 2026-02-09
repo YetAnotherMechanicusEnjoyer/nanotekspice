@@ -1,0 +1,6 @@
+nanotekspice
+.old
+compile_commands.json
+*.o
+.obj/
+.cache
