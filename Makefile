@@ -9,7 +9,10 @@ CC	= clang++
 
 SRC_DIR	=	src/
 
-SRC_FILES	=	main.cpp
+SRC_FILES	=	main.cpp	\
+						ComponentFactory.cpp	\
+						Core.cpp	\
+						Parser.cpp
 
 SRC	=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
