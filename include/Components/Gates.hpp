@@ -51,6 +51,10 @@ struct Operators {
     if (a == Undefined || b == Undefined) return Undefined;
     return (a == b) ? False : True;
   }
+  static nts::Tristate ntsNor(nts::Tristate a, nts::Tristate b) {
+    if (a == Undefined || b == Undefined) return Undefined;
+    return (a == False && b == False) ? True : False;
+  }
 };
 }
 
