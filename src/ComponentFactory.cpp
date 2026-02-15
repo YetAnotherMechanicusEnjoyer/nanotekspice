@@ -4,6 +4,8 @@
 #include "Components/InputComponent.hpp"
 #include "Components/OutputComponent.hpp"
 #include "Components/Gates.hpp"
+#include "Components/C4001.hpp"
+#include "Components/C4071.hpp"
 #include "Components/C4081.hpp"
 #include "Errors.hpp"
 #include <memory>
@@ -20,6 +22,8 @@ ComponentFactory::ComponentFactory() {
   _builders["or"] = []() { return std::make_unique<GateComponent>(Operators::ntsOr); };
   _builders["xor"] = []() { return std::make_unique<GateComponent>(Operators::ntsXor); };
 
+  _builders["4001"] = []() { return std::make_unique<C4001>(); };
+  _builders["4071"] = []() { return std::make_unique<C4071>(); };
   _builders["4081"] = []() { return std::make_unique<C4081>(); };
 }
 
