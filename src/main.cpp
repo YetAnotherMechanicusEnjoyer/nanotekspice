@@ -3,14 +3,18 @@
 #include "Errors.hpp"
 
 static unsigned int handle_args(int argc, const char *argv[]) {
-  if (argc == 1)
-    return SUCCESS;
-  if (argc > 3 || !argv || !argv[1])
-    return FAIL;
+  if (argc != 2 || !argv || !argv[1]) {
+    std::cerr <<
+      "Usage:\n\tnanotekspice [options] <file>\nOptions:\n\t-h, --help Show this help" <<
+      std::endl;
+    return ERROR;
+  }
+
   std::string flag(argv[1]);
   if (flag == "--help" || flag == "-h") {
     std::cout <<
-      "usage: nanotekspice [options]\noptions:\n-h, --help Show this help\n";
+      "Usage:\n\tnanotekspice [options] <file>\nOptions:\n\t-h, --help Show this help" <<
+      std::endl;
     return HELP;
   }
   return SUCCESS;
@@ -22,13 +26,14 @@ int main(int argc, const char *argv[]) {
       return SUCCESS;
     case ERROR:
       return ERROR;
-    case FAIL:
-      return FAIL;
     default:
       try {
+        nts::Core engine;
+        engine.setup(argv[1]);
+        engine.run();
         return SUCCESS;
       } catch (const NTSError &err) {
-        std::cerr << err.what() << std::endl;
+        std::cerr << "Error: " << err.what() << std::endl;
         return ERROR;
       } catch (...) {
         std::cerr << "Uncaught Error." << std::endl;
