@@ -8,9 +8,9 @@
 #ifndef COMPONENT4081
   #define COMPONENT4081
   #include "AComponent.hpp"
-#include "Gates.hpp"
-#include "IComponent.hpp"
-#include <memory>
+  #include "Gates.hpp"
+  #include "IComponent.hpp"
+  #include <memory>
   #include <vector>
 
 namespace nts {
