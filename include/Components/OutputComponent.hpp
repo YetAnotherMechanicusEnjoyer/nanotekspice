@@ -14,7 +14,7 @@ namespace nts {
 class OutputComponent: public AComponent {
 public:
   void simulate(std::size_t tick) override { (void)tick; }
-  Tristate compute(std::size_t pin) override {
+  Tristate compute(std::size_t) override {
     return getPinValue(1);
   }
 };

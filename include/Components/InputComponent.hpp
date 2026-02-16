@@ -21,7 +21,7 @@ public:
     _value = _nextValue;
   }
 
-  Tristate compute(std::size_t pin) override { return _value; }
+  Tristate compute(std::size_t) override { return _value; }
 
   void setValue(Tristate val) { _nextValue = val; }
 
