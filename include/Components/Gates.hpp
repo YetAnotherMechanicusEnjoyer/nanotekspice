@@ -44,21 +44,18 @@ private:
 
 struct Operators {
   static Tristate ntsAnd(Tristate a, Tristate b) {
-    if (a == False || b == False) return False;
-    if (a == True && b == True) return True;
-    return Undefined;
+    if (a == Undefined || b == Undefined) return Undefined;
+    return (a == True && b == True) ? True : False;
   }
   static Tristate ntsOr(Tristate a, Tristate b) {
-    if (a == True || b == True) return True;
-    if (a == False || b == False) return False;
-    return Undefined;
+    if (a == Undefined || b == Undefined) return Undefined;
+    return (a == True || b == True) ? True : False;
   }
   static Tristate ntsXor(Tristate a, Tristate b) {
     if (a == Undefined || b == Undefined) return Undefined;
     return (a == b) ? False : True;
   }
-  static Tristate ntsNot(Tristate a, Tristate b) {
-    (void)b;
+  static Tristate ntsNot(Tristate a, Tristate) {
     if (a == Undefined) return Undefined;
     return a == True ? False : True;
   }
