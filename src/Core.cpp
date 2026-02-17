@@ -48,14 +48,14 @@ void Core::display() const {
   for (auto const& [name, comp] : _inputs) {
     Tristate val = comp->compute(1);
     std::string s = (val == Undefined) ? "U" : std::to_string(val);
-    std::cout << " " << name << ": " << s << std::endl;
+    std::cout << "  " << name << ": " << s << std::endl;
   }
 
   std::cout << "output(s):" << std::endl;
   for (auto const& [name, comp] : _outputs) {
     Tristate val = comp->compute(1);
     std::string strVal = (val == Undefined) ? "U" : std::to_string(val);
-    std::cout << " " << name << ": " << strVal << std::endl;
+    std::cout << "  " << name << ": " << strVal << std::endl;
   }
 }
 
