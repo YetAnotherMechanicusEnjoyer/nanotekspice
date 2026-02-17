@@ -9,7 +9,6 @@
   #define CLOCKCOMPONENT
   #include "IComponent.hpp"
   #include "InputComponent.hpp"
-#include <atomic>
 
 namespace nts {
 class ClockComponent: public InputComponent {
@@ -35,7 +34,7 @@ public:
   }
 
 private:
-  std::atomic<bool> _updateValue{false};
+  bool _updateValue{false};
 };
 }
 
